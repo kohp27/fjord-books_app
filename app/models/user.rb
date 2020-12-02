@@ -12,4 +12,8 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
+  def self.find_for_database_authentication(conditions)
+    super(**conditions, provider: nil)
+  end
 end
