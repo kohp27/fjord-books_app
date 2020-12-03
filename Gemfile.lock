@@ -321,6 +321,7 @@ DEPENDENCIES
   kaminari
   letter_opener_web
   listen (~> 3.2)
+  mini_magick
   omniauth
   omniauth-github
   puma (~> 4.1)

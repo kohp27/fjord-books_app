@@ -68,3 +68,5 @@ gem 'kaminari'
 
 gem 'omniauth'
 gem 'omniauth-github'
+
+gem 'mini_magick'
