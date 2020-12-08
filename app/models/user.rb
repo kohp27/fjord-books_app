@@ -9,10 +9,6 @@ class User < ApplicationRecord
 
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
-  def small_icon
-    icon.variant(resize: '50x50').processed
-  end
-
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.name = auth.info.name
