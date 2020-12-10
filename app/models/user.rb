@@ -14,6 +14,22 @@ class User < ApplicationRecord
 
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
+  def following?(target_user)
+    following_relationships.exists?(followed_id: target_user.id)
+  end
+
+  def follow(target_user)
+    return if self == target_user || following?(target_user)
+
+    following << target_user
+  end
+
+  def unfollow(target_user)
+    return unless following?(target_user)
+
+    following_relationships.find_by(followed_id: target_user.id).destroy
+  end
+
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.name = auth.info.name
