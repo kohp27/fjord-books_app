@@ -233,6 +233,10 @@ ja:
     application:
       menu: メニュー
       sign_in_as: "%{email} としてログイン中"
+  users:
+    relationships:
+      follow: フォローする
+      unfollow: フォローを解除
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
