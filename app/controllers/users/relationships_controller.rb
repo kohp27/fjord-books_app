@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::UserRelationshipsController < ApplicationController
+class Users::RelationshipsController < ApplicationController
   def index
     @users = User.find(params[:user_id]).following.order(:id).page(params[:page])
   end
