@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Users::UserRelationshipsController < ApplicationController
+  def index
+    @users = User.find(params[:user_id]).following.order(:id).page(params[:page])
+  end
+
   def create
     target_user = User.find(params[:user_relationship][:followed_id])
     current_user.follow(target_user)

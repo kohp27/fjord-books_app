@@ -237,6 +237,7 @@ ja:
     relationships:
       follow: フォローする
       unfollow: フォローを解除
+      following_users: フォロー中のユーザ
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
