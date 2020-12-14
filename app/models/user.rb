@@ -13,6 +13,8 @@ class User < ApplicationRecord
     end
   end
 
+  # GithubのOAuthを介して作成したユーザーがパスワードでログインできないように
+  # provider: nilを検索条件に加える
   def self.find_for_database_authentication(conditions)
     super(**conditions, provider: nil)
   end
