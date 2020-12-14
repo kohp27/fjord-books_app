@@ -17,7 +17,7 @@
       <tr>
         <td>
           <% if user.icon.attached? %>
-            <%= image_tag icon.variant(resize: '50x50').processed %>
+            <%= image_tag user.icon.variant(resize: '50x50') %>
           <% end %>
         </td>
         <td><%= user.email %></td>
