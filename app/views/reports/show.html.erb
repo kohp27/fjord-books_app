@@ -11,7 +11,7 @@
 </p>
 
 <%= render 'comments/form', parent: @report %>
-<%= render partial: 'comments/item', collection: @report.comments %>
+<%= render partial: 'comments/item', collection: @report.comments.order(:id) %>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Back', reports_path %>

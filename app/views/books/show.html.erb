@@ -23,7 +23,7 @@
 </p>
 
 <%= render 'comments/form', parent: @book %>
-<%= render partial: 'comments/item', collection: @book.comments %>
+<%= render partial: 'comments/item', collection: @book.comments.order(:id) %>
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
