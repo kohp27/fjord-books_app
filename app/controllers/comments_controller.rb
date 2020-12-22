@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_parent
+  before_action :set_parent, only: :create
 
   def create
     comment = @parent.comments.build(comment_params)
@@ -11,6 +11,12 @@ class CommentsController < ApplicationController
     else
       redirect_to @parent
     end
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to comment.commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
