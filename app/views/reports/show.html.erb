@@ -10,7 +10,7 @@
   <%= @report.body %>
 </p>
 
-<%= render 'comments/form', parent: @report, comment: Comment.new %>
+<%= render 'comments/form', parent: @report %>
 <%= render partial: 'comments/item', collection: @report.comments %>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |

@@ -1,4 +1,4 @@
-<%= form_with(model: [parent, comment], local: true) do |form| %>
+<%= form_with(model: [parent, comment = Comment.new], local: true) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(report.errors.count, "error") %></h2>
