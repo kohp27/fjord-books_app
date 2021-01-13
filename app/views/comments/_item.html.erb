@@ -1,0 +1,5 @@
+<div>
+  <pre><%= item.body %></pre>
+  <%= link_to t('views.common.destroy'), [item.commentable, item], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+  <hr>
+</div>
