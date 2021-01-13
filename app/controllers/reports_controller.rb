@@ -4,13 +4,11 @@ class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
 
   # GET /reports
-  # GET /reports.json
   def index
     @reports = Report.all
   end
 
   # GET /reports/1
-  # GET /reports/1.json
   def show; end
 
   # GET /reports/new
@@ -22,7 +20,6 @@ class ReportsController < ApplicationController
   def edit; end
 
   # POST /reports
-  # POST /reports.json
   def create
     @report = Report.new(report_params)
 
@@ -34,7 +31,6 @@ class ReportsController < ApplicationController
   end
 
   # PATCH/PUT /reports/1
-  # PATCH/PUT /reports/1.json
   def update
     if @report.update(report_params)
       redirect_to @report, notice: 'Report was successfully updated.'
@@ -44,7 +40,6 @@ class ReportsController < ApplicationController
   end
 
   # DELETE /reports/1
-  # DELETE /reports/1.json
   def destroy
     @report.destroy
     redirect_to reports_url, notice: 'Report was successfully destroyed.'
