@@ -97,6 +97,11 @@ GEM
       railties (>= 3.2)
     dummy_text_jp (0.0.2)
     erubi (1.10.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
     faraday (1.1.0)
@@ -317,6 +322,7 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   dummy_text_jp
+  factory_bot_rails
   faker
   i18n_generators
   image_processing (~> 1.2)
