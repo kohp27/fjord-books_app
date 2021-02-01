@@ -63,4 +63,12 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_path
     assert_no_selector %(a[href="#{report_path(@other_report)}"]), text: '削除'
   end
+
+  test '日報にコメントを追加できること' do
+    visit report_path(@my_report)
+    fill_in 'comment_content', with: 'おめでとうございます！'
+    click_on 'コメントする'
+
+    assert_text 'おめでとうございます！'
+  end
 end

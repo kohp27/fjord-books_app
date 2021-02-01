@@ -55,4 +55,12 @@ class BooksTest < ApplicationSystemTestCase
 
     assert_text '本が削除されました。'
   end
+
+  test '本にコメントを追加できること' do
+    visit book_path(@book)
+    fill_in 'comment_content', with: '面白かったです！'
+    click_on 'コメントする'
+
+    assert_text '面白かったです！'
+  end
 end
