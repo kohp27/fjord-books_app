@@ -57,6 +57,7 @@ class ReportsTest < ApplicationSystemTestCase
     end
 
     assert_text '日報が削除されました。'
+    assert_not Report.exists?(@my_report.id)
   end
 
   test '他人が書いた日報に削除リンクがないこと' do

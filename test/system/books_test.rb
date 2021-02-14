@@ -50,10 +50,11 @@ class BooksTest < ApplicationSystemTestCase
   test '本を削除できること' do
     visit books_path
     page.accept_confirm do
-      click_on '削除', match: :first
+      click_link '削除', href: book_path(@book)
     end
 
     assert_text '本が削除されました。'
+    assert_not Book.exists?(@book.id)
   end
 
   test '本にコメントを追加できること' do
