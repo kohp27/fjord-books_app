@@ -51,13 +51,16 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test '自分が書いた日報を削除できること' do
+    my_report = create(:report, user: @user1, title: '課題をクリアしました')
+
     visit reports_path
     page.accept_confirm do
-      click_link '削除', href: report_path(@my_report)
+      click_link '削除', href: report_path(my_report)
     end
-
     assert_text '日報が削除されました。'
-    assert_not Report.exists?(@my_report.id)
+
+    visit reports_path
+    assert_no_text '課題をクリアしました'
   end
 
   test '他人が書いた日報に削除リンクがないこと' do

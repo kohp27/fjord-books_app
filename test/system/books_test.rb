@@ -48,13 +48,16 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test '本を削除できること' do
+    book = create(:book, title: 'そして誰もいなくなった')
+
     visit books_path
     page.accept_confirm do
-      click_link '削除', href: book_path(@book)
+      click_link '削除', href: book_path(book)
     end
-
     assert_text '本が削除されました。'
-    assert_not Book.exists?(@book.id)
+
+    visit books_path
+    assert_no_text 'そして誰もいなくなった'
   end
 
   test '本にコメントを追加できること' do
